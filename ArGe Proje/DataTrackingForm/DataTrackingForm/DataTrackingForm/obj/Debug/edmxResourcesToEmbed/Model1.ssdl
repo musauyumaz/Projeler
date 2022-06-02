@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataTrackingDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Data">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MachineId" Type="int" />
+    <Property Name="Data1" Type="float" />
+    <Property Name="Data2" Type="float" />
+    <Property Name="Data3" Type="float" />
+    <Property Name="Data4" Type="float" />
+    <Property Name="Data5" Type="float" />
+    <Property Name="Data6" Type="float" />
+    <Property Name="Data7" Type="float" />
+    <Property Name="Data8" Type="float" />
+    <Property Name="Data9" Type="float" />
+    <Property Name="Data10" Type="float" />
+    <Property Name="Data11" Type="float" />
+    <Property Name="Data12" Type="float" />
+    <Property Name="CreatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Machines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MachineName" Type="varchar" MaxLength="100" />
+    <Property Name="Voltage" Type="float" />
+    <Property Name="Frequency" Type="float" />
+    <Property Name="Power" Type="float" />
+    <Property Name="ProductionDate" Type="date" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Brand" Type="varchar" MaxLength="50" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="SerialNumber" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Data_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="0..1" />
+    <End Role="Data" Type="Self.Data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Data">
+        <PropertyRef Name="MachineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataTrackingDbModelStoreContainer">
+    <EntitySet Name="Data" EntityType="Self.Data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Machines" EntityType="Self.Machines" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Data_Machines" Association="Self.FK_Data_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="Data" EntitySet="Data" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

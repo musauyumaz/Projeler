@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataTrackingDbModelStoreContainer" CdmEntityContainer="DataTrackingDbEntities1">
+    <EntitySetMapping Name="Data">
+      <EntityTypeMapping TypeName="DataTrackingDbModel.Data">
+        <MappingFragment StoreEntitySet="Data">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MachineId" ColumnName="MachineId" />
+          <ScalarProperty Name="Data1" ColumnName="Data1" />
+          <ScalarProperty Name="Data2" ColumnName="Data2" />
+          <ScalarProperty Name="Data3" ColumnName="Data3" />
+          <ScalarProperty Name="Data4" ColumnName="Data4" />
+          <ScalarProperty Name="Data5" ColumnName="Data5" />
+          <ScalarProperty Name="Data6" ColumnName="Data6" />
+          <ScalarProperty Name="Data7" ColumnName="Data7" />
+          <ScalarProperty Name="Data8" ColumnName="Data8" />
+          <ScalarProperty Name="Data9" ColumnName="Data9" />
+          <ScalarProperty Name="Data10" ColumnName="Data10" />
+          <ScalarProperty Name="Data11" ColumnName="Data11" />
+          <ScalarProperty Name="Data12" ColumnName="Data12" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Machines">
+      <EntityTypeMapping TypeName="DataTrackingDbModel.Machines">
+        <MappingFragment StoreEntitySet="Machines">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="Voltage" ColumnName="Voltage" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Power" ColumnName="Power" />
+          <ScalarProperty Name="ProductionDate" ColumnName="ProductionDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

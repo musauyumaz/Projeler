@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataTrackingDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Data">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MachineId" Type="Int32" />
+    <Property Name="Data1" Type="Double" />
+    <Property Name="Data2" Type="Double" />
+    <Property Name="Data3" Type="Double" />
+    <Property Name="Data4" Type="Double" />
+    <Property Name="Data5" Type="Double" />
+    <Property Name="Data6" Type="Double" />
+    <Property Name="Data7" Type="Double" />
+    <Property Name="Data8" Type="Double" />
+    <Property Name="Data9" Type="Double" />
+    <Property Name="Data10" Type="Double" />
+    <Property Name="Data11" Type="Double" />
+    <Property Name="Data12" Type="Double" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Machines" Relationship="Self.FK_Data_Machines" FromRole="Data" ToRole="Machines" />
+  </EntityType>
+  <EntityType Name="Machines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MachineName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Voltage" Type="Double" />
+    <Property Name="Frequency" Type="Double" />
+    <Property Name="Power" Type="Double" />
+    <Property Name="ProductionDate" Type="DateTime" Precision="0" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Data" Relationship="Self.FK_Data_Machines" FromRole="Machines" ToRole="Data" />
+  </EntityType>
+  <Association Name="FK_Data_Machines">
+    <End Role="Machines" Type="Self.Machines" Multiplicity="0..1" />
+    <End Role="Data" Type="Self.Data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Machines">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Data">
+        <PropertyRef Name="MachineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataTrackingDbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Data" EntityType="Self.Data" />
+    <EntitySet Name="Machines" EntityType="Self.Machines" />
+    <AssociationSet Name="FK_Data_Machines" Association="Self.FK_Data_Machines">
+      <End Role="Machines" EntitySet="Machines" />
+      <End Role="Data" EntitySet="Data" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

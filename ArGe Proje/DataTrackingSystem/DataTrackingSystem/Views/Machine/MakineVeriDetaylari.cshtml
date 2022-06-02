@@ -1,0 +1,366 @@
+﻿@model Entities.Concrete.Data
+
+@{
+    ViewData["Title"] = "MakineVeriDetaylari";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@functions{
+    public string GetColor(double deger)
+    {
+        if (deger == 0)
+        {
+            return "red";
+        }
+        else if (deger == 1)
+        {
+            return "green";
+        }
+        else if (deger == -1)
+        {
+            return "blue";
+        }
+        else
+        {
+            return "black";
+        }
+    }
+    public string VeriGoster(double deger)
+    {
+        string yeniDeger = deger.ToString();
+        if (deger == 0)
+        {
+            yeniDeger = "LOW";
+            return yeniDeger;
+        }
+        else if (deger == 1)
+        {
+            yeniDeger = "HIGH";
+            return yeniDeger;
+        }
+        else if (deger == -1)
+        {
+            yeniDeger = "NONE";
+            return yeniDeger;
+        }
+        else
+        {
+            return yeniDeger;
+        }
+    }
+
+}
+
+
+
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Makine Sensör Verileri</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/starter/assets/css/style-starter.css">
+    <meta http-equiv="refresh" content="30000">
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+    <section>
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu sticky-sidebar-menu">
+
+            <!-- logo start -->
+            <div class="logo">
+                <h1><a href="/Machine/Index/">Makineler</a></h1>
+            </div>
+
+            <!-- if logo is image enable this -->
+            <!-- image logo --
+            <div class="logo">
+              <a href="index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+              </a>
+            </div>
+            <!-- //image logo -->
+
+            <div class="logo-icon text-center">
+                <a href="/Machine/Index/" title="Makineler"><img src="~/starter/assets/images/logo.png" alt="logo-icon"> </a>
+            </div>
+            <!-- //logo end -->
+
+
+        </div>
+        <!-- //sidebar menu end -->
+        <!-- header-starts -->
+        <div class="header sticky-header">
+
+            <!-- notification menu start -->
+            <!--notification menu end -->
+        </div>
+        <!-- //header-ends -->
+        <!-- main content start -->
+        <div class="main-content">
+
+            <!-- content -->
+            <div class="container-fluid content-top-gap">
+                <!-- statistics data -->
+                <div class="statistics">
+
+                    <div class="row">
+                        <div class="col-xl-6 pr-xl-2">
+                            <div class="row">
+                                <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color :@GetColor(Model.Data1)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data1)</h3>
+                                        <p class="stat-text text-light">Data 1</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data2)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data2)</h3>
+                                        <p class="stat-text text-light">Data 2</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 pl-xl-2">
+                            <div class="row">
+                                <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4 " style="background-color: @GetColor(@Model.Data3)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data3)</h3>
+                                        <p class="stat-text text-light">Data 3</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data4)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data4)</h3>
+                                        <p class="stat-text text-light">Data 4</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 pr-xl-2">
+                            <div class="row">
+                                <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data5)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data5)</h3>
+                                        <p class="stat-text text-light">Data 5</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data6)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data6)</h3>
+                                        <p class="stat-text text-light">Data 6</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 pl-xl-2">
+                            <div class="row">
+                                <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data7)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data7)</h3>
+                                        <p class="stat-text text-light">Data 7</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data8)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data8)</h3>
+                                        <p class="stat-text text-light">Data 8</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 pr-xl-2">
+                            <div class="row">
+                                <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data9)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data9)</h3>
+                                        <p class="stat-text text-light">Data 9</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data10)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data10)</h3>
+                                        <p class="stat-text text-light">Data 10</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 pl-xl-2">
+                            <div class="row">
+                                <div class="col-sm-6 pr-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data11)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data11)</h3>
+                                        <p class="stat-text text-light">Data 11</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 pl-sm-2 statistics-grid">
+                                    <div class="card card_border border-primary-top p-4" style="background-color: @GetColor(@Model.Data12)">
+                                        <i class="lnr lnr-cog"> </i>
+                                        <h3 class="text-light number">@VeriGoster(Model.Data12)</h3>
+                                        <p class="stat-text text-light">Data 12</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- //statistics data -->
+                <!-- charts -->
+                <div class="chart">
+                    <div class="row">
+                        <div class="col-lg-6 pr-lg-2 chart-grid">
+                            <div class="card text-center card_border">
+                                <div class="card-header chart-grid__header">
+                                    Bar Chart
+                                </div>
+                                <div class="card-body">
+                                    <!-- bar chart -->
+                                    <div id="container">
+                                        <canvas id="barchart"></canvas>
+                                    </div>
+                                    <!-- //bar chart -->
+                                </div>
+                                <div class="card-footer text-muted chart-grid__footer">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pl-lg-2 chart-grid">
+                            <div class="card text-center card_border">
+                                <div class="card-header chart-grid__header">
+                                    Line Chart
+                                </div>
+                                <div class="card-body">
+                                    <!-- line chart -->
+                                    <div id="container">
+                                        <canvas id="linechart"></canvas>
+                                    </div>
+                                    <!-- //line chart -->
+                                </div>
+                                <div class="card-footer text-muted chart-grid__footer">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //charts -->
+                >
+
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    <footer class="dashboard">
+        <p>&copy;2022 Machine Tracking. Tüm Hakları Saklıdır | Design by <a href="https://github.com/musauyumaz"> M & H Mühendislik</a></p>
+    </footer>
+    <!--footer section end-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }</script>
+    <!-- /move top -->
+
+
+    <script src="~/starter/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/starter/assets/js/jquery-1.10.2.min.js"></script>
+
+    <!-- chart js -->
+    <script src="~/starter/assets/js/Chart.min.js"></script>
+    <script src="~/starter/assets/js/utils.js"></script>
+    <!-- //chart js -->
+    <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+    <script src="~/starter/assets/js/bar.js"></script>
+    <script src="~/starter/assets/js/linechart.js"></script>
+    <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+    <script src="~/starter/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/starter/assets/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>
+        var closebtns = document.getElementsByClassName("close-grid");
+        var i;
+
+        for (i = 0; i < closebtns.length; i++) {
+            closebtns[i].addEventListener("click", function () {
+                this.parentElement.style.display = 'none';
+            });
+        }</script>
+    <!-- //close script -->
+    <!-- disable body scroll when navbar is in active -->
+    <script>
+        $(function () {
+            $('.sidebar-menu-collapsed').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });</script>
+    <!-- disable body scroll when navbar is in active -->
+    <!-- loading-gif Js -->
+    <script src="~/starter/assets/js/modernizr.js"></script>
+    <script>
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });</script>
+    <!--// loading-gif Js -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/starter/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+

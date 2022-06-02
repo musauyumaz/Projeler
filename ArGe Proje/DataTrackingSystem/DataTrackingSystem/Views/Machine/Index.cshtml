@@ -1,0 +1,112 @@
+﻿@using Entities.Concrete
+@model List<Machine>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@functions
+    {
+    public string ClassChange(int machineId){
+        if (machineId % 3 == 0)
+        {
+            return "pricing-top green-top";
+        }
+        else if (machineId % 3 == 1)
+        {
+            return "pricing-top blue-top";
+        }
+        else
+        {
+            return "pricing-top pricing-top";
+        }
+    }
+    }
+<!doctype html>
+<html>
+<head>
+    <title>Machine Tracking</title>
+    <!-- for-mobile-apps -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Data Pricing Tables Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //for-mobile-apps -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/web/css/jquery.flipster.css">
+    <link href="~/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/web/js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+
+
+    <div class="content" id="Main-Content">
+        <h1>Makine Kontrol Sistemi</h1>
+        <!-- Flipster List -->
+        <div class="flipster">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <div class="pricing">
+                            <div class="@ClassChange(item.Id)">
+                                <h3>@item.MachineName</h3>
+
+                            </div>
+                            <div class="pricing-bottom">
+                                <div class="pricing-bottom-top">
+                                    <p>Power : @item.Power kW</p>
+                                    <p>Frequency : @item.Frequency Hz</p>
+                                    <p>Voltage : @item.Voltage Volt</p>
+                                </div>
+                                <div class="pricing-bottom-bottom">
+                                    <p><span>Production Date : </span>@item.ProductionDate.ToShortDateString()</p>
+                                    <p><span>Type : </span>@item.Type</p>
+                                    <p><span>Brand : </span> @item.Brand</p>
+                                    <p><span>Model : </span>@item.Model</p>
+                                    <p><span>Serial Number : </span>@item.SerialNumber</p>
+                                </div>
+                                <div class="buy-button">
+                                    <a href="/Machine/MakineVeriDetaylari/@item.Id/">Makine Verilerine Git</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+                <li>
+                    <div class="pricing">
+                        <div class="pricing-top pricing-top">
+                            <h3>Yeni Makine</h3>
+
+                        </div>
+                        <div class="pricing-bottom">
+                            <div class="pricing-bottom-top">
+                            </div>
+                            <div class="pricing-bottom-bottom">
+                            </div>
+
+                            <a class="btn btn-success" href="/Machine/AddMachine">Yeni Makine Ekle</a>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <p class="footer">&copy;2022 Machine Tracking. Tüm Hakları Saklıdır | Design by <a href="https://github.com/musauyumaz"> M & H Mühendislik</a></p>
+        </div>
+        <!-- End Flipster List -->
+    </div>
+    <script src="~/web/js/jquery.flipster.js"></script>
+    <script>
+
+
+        $(function () { $(".flipster").flipster({ style: 'carousel', start: 0 }); });
+
+
+    </script>
+
+</body>
+</html>
+
+
